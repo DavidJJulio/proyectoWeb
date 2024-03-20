@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     menuIcon.addEventListener("click", function() {
         if (menuContent.style.display === "block") {
             menuContent.style.display = "none";
-        } else {
-            menuContent.style.display = "block";
+        } else if (menuContent.style.display !== "flex") {
+            menuContent.style.display = "flex";
         }
     });
 });

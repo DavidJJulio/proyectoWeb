@@ -29,19 +29,19 @@
    display: none;
 }
 
-#menuContent a {
-   display: block;
+ #menuContent a {
+   display: flex;
    padding: 10px;
    text-decoration: none;
    color: var(--color-secundary);
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 150px;
+   font-size: 1em;
 }
 
-#menuContent a:hover {
-   background-color: lightgray;
+ #menuContent a:hover {
+   font-weight: bold;
 }
  .header {
    width: 100%;
@@ -54,7 +54,7 @@
    justify-content: space-between;
    padding: 20px;
  }
- .header i div {
+ .header div {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -83,7 +83,7 @@
    align-items: center;
    
  }
- .header i div a {
+ .header div a {
    color: var(--color-secundary);
    font-size: .5em;
    text-decoration: none;
@@ -542,16 +542,26 @@
 /* PC SITE */
 @media (width > 700px) {
    .header i div {
-      display: flex;
-      justify-content: space-between;
       width: 30%;
+      
    }
-   .header i div a {
+   .header div a {
       color: var(--color-secundary);
-      font-size: .5em;
+      font-size: .9em;
       text-decoration: none;
+      width: 10%;
    }
-   .header i div a:hover {
+   #menuContent {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      background: transparent;
+      height: 100px;
+      justify-content: end;
+      align-items: start;
+      margin: 0;
+   }
+   .header div a:hover {
       font-weight: bold;
      font-style: oblique;
    }

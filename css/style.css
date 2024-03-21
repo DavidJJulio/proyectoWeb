@@ -195,3 +195,22 @@ main {
     font-weight: bold;
     box-shadow: 0px 0px 5px 0px var(--color-gray);
 }
+
+@media (width <700px) {
+    main {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 5fr;
+        grid-template-areas: 
+        "aside"
+        "window"
+        ;
+    }
+    .aside {
+        width: 100%;
+    }
+    .products__window {
+        width: 100%;
+    }
+}

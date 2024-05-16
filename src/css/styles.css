@@ -23,7 +23,9 @@ body {
 }
 
 .main__aside {
-    background-color: rebeccapurple;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-orange);
     grid-area: main__aside;
     display: grid;
     grid-template-rows: 1fr 3fr 1fr;
@@ -37,18 +39,27 @@ body {
 
 .aside__div_1{
     grid-area: aside__div_1;
+    width: 100%;
+    height: 100%;
     /* background-color: green; */
 }
 .aside__div_2{
     grid-area: aside__div_2;
+    width: 100%;
+    height: 100%;
     /* background-color: gray; */
 }
 .aside__div_3{
     grid-area: aside__div_3;
+    width: 100%;
+    height: 100%;
     /* background-color: gainsboro; */
 }
 
 .main__section {
+    width: 100%;
+    height: 100%;
+    padding: 1%;
     grid-area: main__section;
-    background-color: gainsboro;
+    background-color: var(--color-orange);
 }

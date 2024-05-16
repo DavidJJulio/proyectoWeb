@@ -1,1 +1,54 @@
 @import url(variables.css);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "main__aside main__section"
+    ;
+}
+
+.main__aside {
+    background-color: rebeccapurple;
+    grid-area: main__aside;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "aside__div_1"
+    "aside__div_2"
+    "aside__div_3"
+    ;
+}
+
+.aside__div_1{
+    grid-area: aside__div_1;
+    /* background-color: green; */
+}
+.aside__div_2{
+    grid-area: aside__div_2;
+    /* background-color: gray; */
+}
+.aside__div_3{
+    grid-area: aside__div_3;
+    /* background-color: gainsboro; */
+}
+
+.main__section {
+    grid-area: main__section;
+    background-color: gainsboro;
+}

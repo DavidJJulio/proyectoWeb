@@ -1,27 +1,59 @@
 import {LitElement, html, css} from "lit"
 
 export class productContainer extends LitElement{
+
+    static properties = {
+        name: {type: String},
+    };
+
+    constructor(){
+        super();
+        this.name = ''
+    }
+    
     static styles = css`
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
     .section {
-        padding: 1%;
+        display: flex;
+        padding: 1.5%;
         width:  100%;
         height:  100%;
-        background-color: black;
+        background-color: var(--color-orange);
     }
 
     .section__div {
-       
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        padding: 3.5%;
         background-color: white;
+        display: flex;
+        gap: 5%;
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 2em;
+        color: var(--color-orange);
     }
     `
     render(){
-        console.log("funciona")
         return html`
         <section class ="section">
+            
             <div class ="section__div">
-
+            <div class="section__header">
+                <h1>Todos los productos</h1>
+            </div>
+                <product-card></product-card>
             </div>
         </section>
         `
+        
     }
 }
+

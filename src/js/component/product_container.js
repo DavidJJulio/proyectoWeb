@@ -29,15 +29,18 @@ export class productContainer extends LitElement{
         width: 100%;
         height: 100%;
         border-radius: 40px;
-        padding: 3.5%;
+        padding: 2.5%;
+        padding-bottom: 13.5%;
         background-color: white;
         display: flex;
         gap: 5%;
         flex-direction: column;
+        contain: content;
     }
     
     h1 {
         font-size: 2em;
+        padding-top: 1%;
         color: var(--color-orange);
     }
     `

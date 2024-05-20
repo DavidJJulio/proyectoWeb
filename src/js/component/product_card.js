@@ -36,7 +36,7 @@ export class productCard extends LitElement {
         .card {
             width: 24%;
             border-radius: 40px;
-            height: 450px;
+            height: 560px;
             background-color: var(--color-black);
             margin: 0.5%; 
             display: flex;
@@ -45,27 +45,53 @@ export class productCard extends LitElement {
             justify-content: center;
             padding: 1.5%;
             gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 4fr 0.5fr 1fr;
+            grid-template-areas:
+            "title"
+            "img"
+            "price"
+            "button"
+            ;
+        }
+        .img {
+            max-width: 100%;
+            height: 350px;
+            background-color: gray;
+            border-radius: 20px;
+            grid-area: img;
+
         }
         img {
             width: 100%;
-            height: 70%;
             border-radius: 20px;
-
+            height: 100%;
         }
-        p{
+        .title{
             width: 100%;
-            height: 10%;
+            min-height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            grid-area: title;
+        }
+        .price {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            grid-area: price;
         }
         button {
-            width: 100%;
+            min-width: 100%;
             border: none;
             background-color: white;
-            height: 15%;
+            min-height: 100%;
             font-size: 1em;
             border-radius: 20px;
+            grid-area: button;
         }
         button:hover {
             box-shadow: 0px 0px 5px 0px white;
@@ -113,10 +139,17 @@ export class productCard extends LitElement {
         <main>
         ${this.data.map(val => html`
                 <div class="card">
-                <p>${val.title}</p>
-                <img src ="${val.image}">
-                <p>${val.price}$</p>
-                <button>Agregar al carrito</button>
+                    <div class="title">
+                        <p>${val.title}</p>
+                    </div>
+                    
+                    <div class="img">
+                        <img src ="${val.image}">
+                    </div>
+                    <div class="price">
+                        <p>${val.price}</p>
+                    </div>
+                    <button id ="hjf">Agregar al carrito</button>
                 </div>
             `)}
         </main>   

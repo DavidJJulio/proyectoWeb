@@ -22,7 +22,7 @@ export class productContainer extends LitElement{
         padding: 1.5%;
         width:  100%;
         height:  100%;
-        background-color: var(--color-orange);
+        background-color: var(--color-black);
         content: contain;
     }
 
@@ -32,7 +32,7 @@ export class productContainer extends LitElement{
         border-radius: 40px;
         padding: 2.5%;
         padding-bottom: 13.5%;
-        background-color: var(--color-black);
+        background-color: var(--color-white);
         display: flex;
         gap: 5%;
         flex-direction: column;
@@ -43,7 +43,7 @@ export class productContainer extends LitElement{
     h1 {
         font-size: 2em;
         padding-top: 1%;
-        color: var(--color-orange);
+        color: var(--color-black);
     }
     `
     render(){
@@ -52,13 +52,13 @@ export class productContainer extends LitElement{
             
             <div class ="section__div">
             <div class="section__header">
-                <h1>Todos los productos</h1>
+                <h1>${this.name}</h1>
             </div>
-                <product-card></product-card>
+                <product-card name ="${this.name}"></product-card>
             </div>
         </section>
         `
-        
     }
+    
 }
 

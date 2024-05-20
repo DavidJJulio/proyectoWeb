@@ -1,14 +1,22 @@
 import { LitElement, html, css } from "lit";
-import { getAllProducts, getProductsWithoutElectronics } from "../module/consulta.js";
+import { 
+    getAllProducts, 
+    getProductsWithoutElectronics,
+    getJewelery,
+    getMenClothing,
+    getWomenClothing
+ } from "../module/consulta.js";
 
 export class productCard extends LitElement {
     static properties = {
-        data: { type: Array }
+        data: { type: Array },
+        name: {type: String}
     };
 
     constructor() {
         super();
         this.data = [];
+        this.name = '';
     }
 
     static styles = css`
@@ -23,12 +31,13 @@ export class productCard extends LitElement {
             display: flex;
             flex-wrap: wrap;
             overflow: scroll;
+            color: white;
         }
         .card {
             width: 24%;
             border-radius: 40px;
             height: 450px;
-            background-color: #ff9500;
+            background-color: var(--color-black);
             margin: 0.5%; 
             display: flex;
             flex-direction: column;
@@ -40,6 +49,7 @@ export class productCard extends LitElement {
         img {
             width: 100%;
             height: 70%;
+            border-radius: 20px;
 
         }
         p{
@@ -53,7 +63,7 @@ export class productCard extends LitElement {
             width: 100%;
             border: none;
             background-color: white;
-            height: 10%;
+            height: 15%;
             font-size: 1em;
             border-radius: 20px;
         }
@@ -64,7 +74,18 @@ export class productCard extends LitElement {
     `;
 
     async firstUpdated() {
-        this.data = await this.getProductsWithoutElectronicsDesign();
+        if (this.name == "Todos los productos"){
+           this.data = await this.getProductsWithoutElectronicsDesign(); 
+        }  
+        if (this.name == "Ropa Mujer"){
+            this.data = await this.getWomenClothingDesign(); 
+         } 
+        if (this.name == "Ropa Hombre"){
+            this.data = await this.getMenClothingDesign(); 
+        }
+        if (this.name == "Accesorios"){
+            this.data = await this.getJeweleryDesign(); 
+        } 
     }
 
     async getProductsWithoutElectronicsDesign() {
@@ -72,18 +93,34 @@ export class productCard extends LitElement {
         return res;
     }
 
+    async getWomenClothingDesign() {
+        let res = await getWomenClothing();
+        return res;
+    }
+
+    async getMenClothingDesign() {
+        let res = await getMenClothing();
+        return res;
+    }
+
+    async getJeweleryDesign() {
+        let res = await getJewelery();
+        return res;
+    }
+
     render() {
-        return html`
+           return html`
         <main>
         ${this.data.map(val => html`
                 <div class="card">
                 <p>${val.title}</p>
                 <img src ="${val.image}">
+                <p>${val.price}$</p>
                 <button>Agregar al carrito</button>
                 </div>
             `)}
         </main>   
-        `;
+        `; 
     }
 }
 

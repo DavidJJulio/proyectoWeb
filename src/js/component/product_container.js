@@ -23,6 +23,7 @@ export class productContainer extends LitElement{
         width:  100%;
         height:  100%;
         background-color: var(--color-orange);
+        content: contain;
     }
 
     .section__div {
@@ -31,11 +32,12 @@ export class productContainer extends LitElement{
         border-radius: 40px;
         padding: 2.5%;
         padding-bottom: 13.5%;
-        background-color: white;
+        background-color: var(--color-black);
         display: flex;
         gap: 5%;
         flex-direction: column;
         contain: content;
+        overflow-y: scroll;
     }
     
     h1 {

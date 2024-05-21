@@ -9,7 +9,6 @@ customElements.define("product-card", productCard)
 console.log(await getProductsWithoutElectronics())
 
 
-
 let button = document.querySelectorAll("button");
 let container = document.querySelector(".main__section")
 button.forEach(val=>{

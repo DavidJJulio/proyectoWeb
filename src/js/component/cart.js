@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-import { getCart, clearCart, removeFromCart } from './cart_module.js';
-
+import { getCart, clearCart, removeFromCart, getCont } from './cart_module.js';
 export class shoppingCart extends LitElement {
     static properties = {
         name: {type: String},
@@ -12,6 +11,7 @@ export class shoppingCart extends LitElement {
         super();
         this.name = '';
         this.cart = getCart();
+        this.cont = getCont();
     }
 
     async firstUpdated() {
@@ -90,9 +90,14 @@ export class shoppingCart extends LitElement {
             `;
         }
     }
-
+    
     clearCart() {
         localStorage.removeItem('cart');
+        localStorage.setItem('cont', JSON.stringify({ count: 0 }));
+        let i = document.querySelector("i")
+        let cont = this.cont;
+        let count = cont.count || 0;
+        i.textContent = 0;
         this.cart = {};
     }
 

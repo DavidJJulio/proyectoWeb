@@ -6,17 +6,21 @@ import {
     getMenClothing,
     getWomenClothing
  } from "../module/consulta.js";
+import { addToCart } from "./cart_module.js";
+
 
 export class productCard extends LitElement {
     static properties = {
         data: { type: Array },
-        name: {type: String}
+        name: {type: String},
     };
 
     constructor() {
         super();
         this.data = [];
         this.name = '';
+        this.addToCart = addToCart;
+        
     }
 
     static styles = css`
@@ -149,7 +153,7 @@ export class productCard extends LitElement {
                     <div class="price">
                         <p>${val.price}</p>
                     </div>
-                    <button id ="hjf">Agregar al carrito</button>
+                    <button class="compra" @click="${() => this.addToCart(val)}">Agregar al carrito</button>
                 </div>
             `)}
         </main>   

@@ -55,6 +55,7 @@ export class productContainer extends LitElement{
                 <h1>${this.name}</h1>
             </div>
                 <product-card name ="${this.name}"></product-card>
+                <shopping-cart name ="${this.name}"></shopping-cart>
             </div>
         </section>
         `

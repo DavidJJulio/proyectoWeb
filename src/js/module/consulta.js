@@ -59,12 +59,12 @@ export const getJewelery= async() =>{
 
 
 
-export const getProductsWithoutElectronicsSave = async() =>{
-    let res = await fetch("http://localhost:5501")
+export const getAllSave = async() =>{
+    let res = await fetch("http://localhost:5501/todos")
     let data = await res.json()
     let result = []
     data.forEach(val =>{
-                result.push(val)
+            result.push(val)
     })
     return result
 }

@@ -1,13 +1,11 @@
 import { shoppingCart } from "./component/cart.js";
 import { productCard } from "./component/product_card";
 import { productContainer } from "./component/product_container";
-import { getProductsWithoutElectronics } from "./module/consulta.js";
+import { getProductsWithoutElectronics, getWomenClothingSave } from "./module/consulta.js";
 
 customElements.define("shopping-cart", shoppingCart)
 customElements.define("product-container", productContainer)
 customElements.define("product-card", productCard)
-console.log(await getProductsWithoutElectronics())
-
 
 let button = document.querySelectorAll("button");
 let container = document.querySelector(".main__section")

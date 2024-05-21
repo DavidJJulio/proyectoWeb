@@ -4,7 +4,11 @@ import {
     getProductsWithoutElectronics,
     getJewelery,
     getMenClothing,
-    getWomenClothing
+    getWomenClothing,
+    getJewelerySave,
+    getWomenClothingSave,
+    getMenClothingSave,
+    getAllSave
  } from "../module/consulta.js";
 import { addToCart } from "./cart_module.js";
 
@@ -120,22 +124,26 @@ export class productCard extends LitElement {
 
     async getProductsWithoutElectronicsDesign() {
         let res = await getProductsWithoutElectronics();
-        return res;
+        let data = await getAllSave();
+        return data;
     }
 
     async getWomenClothingDesign() {
         let res = await getWomenClothing();
-        return res;
+        let data = await getWomenClothingSave()
+        return data;
     }
 
     async getMenClothingDesign() {
         let res = await getMenClothing();
-        return res;
+        let data = await getMenClothingSave();
+        return data;
     }
 
     async getJeweleryDesign() {
         let res = await getJewelery();
-        return res;
+        let data = await getJewelerySave();
+        return data;
     }
 
     render() {

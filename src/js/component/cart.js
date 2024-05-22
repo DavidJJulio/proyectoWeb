@@ -62,9 +62,19 @@ export class shoppingCart extends LitElement {
         background-color: white;
         border: none;
     }
-    .vaciar {
+    button{
         width: 200px;
         height: 100px;
+        border: none;
+    }
+    .buttoncont{
+        display: flex;
+        justify-content: space-between;
+    }
+    button:hover{
+        background-color: white;
+        font-weight: bold;
+        box-shadow: 0px 0px 5px 0px white;
     }
     `
 
@@ -85,7 +95,11 @@ export class shoppingCart extends LitElement {
                             </div>
                         </div>
                     `)}
+                    <div class ="buttoncont">
                     <button class ="vaciar" @click="${this.clearCart}">Vaciar Carrito</button>
+                    <button>Comprar</button>
+                    </div>
+                    
                 </div>
             `;
         }

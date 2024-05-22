@@ -38,15 +38,18 @@ export function removeFromCart(productId) {
     let i = document.querySelector("i")
     let cont = getCont();
     let count = cont.count || 0;
-    count-=1;
+    let cart = getCart();
+    cart[productId].quantity -=1
+    count-=1; 
+    console.log(cart[productId])
+    localStorage.setItem('cart', JSON.stringify(cart));
     localStorage.setItem('cont', JSON.stringify({count}));
     i.textContent = count;
-    let cart = getCart();
-    if (cart[productId]) {
+    if(cart[productId].quantity <= 0) {
         delete cart[productId];
         localStorage.setItem('cart', JSON.stringify(cart));
-    }
 }
+    }
 
 
 

@@ -97,7 +97,7 @@ export class shoppingCart extends LitElement {
                     `)}
                     <div class ="buttoncont">
                     <button class ="vaciar" @click="${this.clearCart}">Vaciar Carrito</button>
-                    <button>Comprar</button>
+                    <button @click="${() =>alert("Gracias")}">Comprar</button>
                     </div>
                     
                 </div>
